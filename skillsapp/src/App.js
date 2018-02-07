@@ -33,11 +33,12 @@ class App extends Component {
           <NavLink activeClassName="navlink-active" exact to="/">
             Home
             </NavLink>
-          <NavLink activeClassName="navlink-active" exact to="/products">
+
+          <NavLink activeClassName="navlink-active" to="/products">
             Products
           </NavLink>
-          <NavLink activeClassName="navlink-active" exact to="/cart">
-            Cart
+          <NavLink activeClassName="navlink-active" to="/manage">
+            Manage Products
           </NavLink>
         </header>
         <div className="mainContentContainer">

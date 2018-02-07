@@ -39,6 +39,38 @@ app.get('/api/me', (req, res, next) => {
     else res.json("User is not logged in")
 });
 
+app.get('/api/getproducts', (req, res) => {
+    app
+        .get("db")
+        .getProducts()
+        .then(results => {
+            res.json(results)
+        })
+        .catch(error => console.log(error))
+})
+
+app.post('/api/addproduct', (req, res) => {
+    console.log(req.body)
+
+    const { product_name, description, price } = req.body
+    app
+        .get("db")
+        .addProduct([product_name, description, price])
+        .then(response => {
+            return res.status(200).json(response[0]);
+        });
+}, )
+
+
+app.delete('/api/removeproduct', (req, res) =>
+    req.app
+        .get("db")
+        .removeProduct([req.query.id])
+        .then(results => {
+            res.json(results)
+        })
+        .catch(error => console.log(error))
+)
 
 app.listen(3001, () => {
     console.log(`I am watching and waiting on 3001`)

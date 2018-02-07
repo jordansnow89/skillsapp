@@ -1,0 +1,1 @@
+DELETE FROM products_skills WHERE id = $1;

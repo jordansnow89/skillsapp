@@ -6,6 +6,12 @@ class Cart extends Component {
 
     }
 
+    componentWillReceiveProps() {
+        console.log("I am receiving props")
+        this.props.handleRemove
+        this.props.cart
+    }
+
     render() {
         console.log(this.props)
         return (
@@ -16,12 +22,13 @@ class Cart extends Component {
                         return (<div key={index}>
                             <div>{product.name}</div>
                             <div>
-                                {product.price}
+                                ${product.price}
                             </div>
                             <div>
                                 {this.props.cart.description}
                             </div>
-
+                            <br />
+                            <button onClick={(event, target, value) => this.props.handleRemove(product, index)}>REMOVE</button>
                             <br />
 
 
